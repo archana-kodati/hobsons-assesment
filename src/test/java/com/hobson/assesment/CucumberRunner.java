@@ -11,7 +11,7 @@ import cucumber.api.junit.Cucumber;
         "json:target/surefire-reports/cucumberOriginal.json"},
         features = {"src/test/resources/features"
         },
-        tags = {"~@ignore"},
+        tags = {"@feature"},
         glue = {"com.hobson.assesment.steps"})
 public class CucumberRunner {
 

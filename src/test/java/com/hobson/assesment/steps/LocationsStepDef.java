@@ -23,7 +23,6 @@ public class LocationsStepDef extends BaseStepDef {
        String actualHQAddress=careersPage.getHQAddress();
        String actualHQHeader=careersPage.getHQAddressHeader();
 
-        System.out.println("HQ location " + actualHQAddress );
        //Verifying for HQ location address header
         Assert.assertEquals("HQ location header is not equal",expectedLocHeader,actualHQHeader);
 
@@ -39,7 +38,7 @@ public class LocationsStepDef extends BaseStepDef {
     @Then("^I should goto google maps in new window with the HQ location ([^\"]*)$")
     public void iShouldGotoGoogleMapsInNewWindowWithTheHQLocationAddress(String expectedHQTitle) throws Throwable {
         careersPage.waitForGoogleMapsPageToLoad();
-        String actualHQAddressInMaps=CareersPage.getAddressTitleInGoogleMaps();
+        String actualHQAddressInMaps=careersPage.getAddressTitleInGoogleMaps();
 
         //Verifying HQ address in google maps once we click on HQ location
         Assert.assertEquals("HQ location address is not opened in Google Maps",expectedHQTitle,actualHQAddressInMaps);
@@ -47,9 +46,8 @@ public class LocationsStepDef extends BaseStepDef {
 
     @Then("^I should navigate to Careers page and see HobsonsVA ([^\"]*) header and ([^\"]*)$")
     public void iShouldNavigateToCareersPageAndSeeHobsonsVAVAlocationHeaderAndLocationaddress(String expectedLocHeader, String expectedLocAddress) throws Throwable {
-        String actualVAAddress=CareersPage.getVAAddress();
-        String actualVAHeader=CareersPage.getVAAddressHeader();
-       System.out.println("Va Address " + actualVAAddress);
+        String actualVAAddress=careersPage.getVAAddress();
+        String actualVAHeader=careersPage.getVAAddressHeader();
         //Verifying for VA location header
         Assert.assertEquals("VA location header is not equal",expectedLocHeader,actualVAHeader);
 
@@ -59,7 +57,7 @@ public class LocationsStepDef extends BaseStepDef {
 
     @And("^I click on VA Location$")
     public void iClickOnVALocation() throws Throwable {
-        CareersPage.clickOnVALocation();
+        careersPage.clickOnVALocation();
     }
 
     @Then("^I should goto google maps in new window with the VA location ([^\"]*)$")
